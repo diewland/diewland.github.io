@@ -44,7 +44,21 @@
     }
     a:hover {
       color: #FC3;
-      font-weight: bold;
+      text-decoration: underline;
+    }
+    #top-wrapper {
+        width: 160px;
+        margin: auto auto;
+    }
+    #line {
+        float: left;
+    }
+    #links {
+        text-align: left;
+        float: right;
+    }
+    .clear {
+        clear: both;
     }
   </style>
 
@@ -57,12 +71,20 @@
     <div class="row">
       <div id='main'>
 
-        <!-- sticker line -->
-        <a title='LINE Sticker' href='https://store.line.me/stickershop/author/55318/en'><img src='https://sdl-stickershop.line.naver.jp/products/0/0/1/1123797/LINEStorePC/thumbnail_shop.png'></a>
-        
-        <!-- github wiki -->
-        <a href='https://github.com/diewland/diewland.github.io/wiki' title='My wiki'>#wiki</a>        
-        <br />
+        <div id='top-wrapper'>
+
+            <!-- sticker line -->
+            <a id='line' title='LINE Sticker' href='https://store.line.me/stickershop/author/55318/en'><img src='https://sdl-stickershop.line.naver.jp/products/0/0/1/1123797/LINEStorePC/thumbnail_shop.png'></a>
+
+            <!-- some links -->
+            <div id='links'>
+                <a href='http://diewland.com/fread' title='Read feed'>#fread</a><br />
+                <a href='https://github.com/diewland/diewland.github.io/wiki' title='My Wiki'>#wiki</a>
+            </div>
+
+            <div class='clear'></div>
+
+        </div
 
         <!-- google play -->
         <a title='Google Play Apps' href='https://play.google.com/store/apps/developer?id=diewland'><img width='200' src='https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png' /></a>
