@@ -1,0 +1,182 @@
+<script src="./js/jquery-2.2.2.min.js"></script>
+<script src="./js/highcharts.js"></script>
+<script src="./js/modules/exporting.js"></script>
+<style type ='text/css'>
+    * {
+        font-family: 'Arial'
+    }
+</style>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id='min'>MIN: 0 at 00:00:00</div>
+<div id='max'>MAX: 0 at 00:00:00</div>
+
+<script type='text/javascript'>
+
+    // initialize max, min
+    var max = [ 0, null ];
+    var min = [ 0, null ];
+    function setMax(amount, time){
+        var d = time ? new Date(time) : new Date();
+        $('#max').html("MAX: " + amount + " at " + d.toLocaleTimeString());
+        max = amount;
+    }
+    function setMin(amount, time){
+        var d = time ? new Date(time) : new Date();
+        $('#min').html("MIN: " + amount + " at " + d.toLocaleTimeString());
+        min = amount;
+    }
+    setMin(99);
+    setMax(0);
+
+    /**
+     * Grid-light theme for Highcharts JS
+     * @author Torstein Honsi
+     */
+    Highcharts.theme = {
+       colors: ["#7cb5ec", "#f7a35c", "#90ee7e", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+          "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+       chart: {
+          backgroundColor: null,
+          style: {
+             fontFamily: "Dosis, sans-serif"
+          }
+       },
+       title: {
+          style: {
+             fontSize: '16px',
+             fontWeight: 'bold',
+             textTransform: 'uppercase'
+          }
+       },
+       tooltip: {
+          borderWidth: 0,
+          backgroundColor: 'rgba(219,219,216,0.8)',
+          shadow: false
+       },
+       legend: {
+          itemStyle: {
+             fontWeight: 'bold',
+             fontSize: '13px'
+          }
+       },
+       xAxis: {
+          gridLineWidth: 1,
+          labels: {
+             style: {
+                fontSize: '12px'
+             }
+          }
+       },
+       yAxis: {
+          minorTickInterval: 'auto',
+          title: {
+             style: {
+                textTransform: 'uppercase'
+             }
+          },
+          labels: {
+             style: {
+                fontSize: '12px'
+             }
+          }
+       },
+       plotOptions: {
+          candlestick: {
+             lineColor: '#404048'
+          }
+       },
+
+       // General
+       background2: '#F0F0EA',
+       global: {
+            useUTC: false
+       },
+    };
+
+    // Apply the theme
+    Highcharts.setOptions(Highcharts.theme);
+
+    $('#container').highcharts({
+        chart: {
+            type: 'spline',
+            animation: Highcharts.svg, // don't animate in old IE
+            marginRight: 10,
+            events: {
+                load: function () {
+                    // TODO set up the updating of the chart each second
+                    var series = this.series[0];
+                    setInterval(function () {
+                        var x = (new Date()).getTime(), // current time
+                            y = Math.floor(Math.random() * 10) + 30
+                        series.addPoint([x, y], true, true);
+                        // update max, min
+                        if(y < min){
+                            setMin(y, x);
+                        }
+                        else if(y > max){
+                            setMax(y, x);
+                        }
+                    }, 1000);
+                }
+            }
+        },
+        title: {
+            text: 'Traffic Count from LPN Tower 1'
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+        },
+        yAxis: {
+            title: {
+                text: 'Amount'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                    Highcharts.numberFormat(this.y, 2);
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        exporting: {
+            enabled: false
+        },
+        series: [{
+            name: 'LPN Tower 1',
+            data: (function () {
+                // TODO generate an array of random data
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+
+                for (i = -19; i <= 0; i += 1) { // size of graph is 20
+                    // var amount = Math.floor(Math.random() * 10) + 30;
+                    var amount = 35;
+                    data.push({
+                        x: time + i * 1000,
+                        y: amount
+                    });
+                    // update max, min
+                    if(amount < min){
+                        setMin(amount, time);
+                    }
+                    else if(amount > max){
+                        setMax(amount, time);
+                    }
+                }
+                return data;
+            }())
+        }]
+    });
+
+</script>
