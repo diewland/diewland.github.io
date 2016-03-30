@@ -9,4 +9,5 @@ var sources = [
     { name: 'techchrunch',      url: 'http://techcrunch.com/feed' },
     { name: 'xda-developers',   url: 'http://www.xda-developers.com/feed' },
     { name: 'lifehacker',       url: 'http://feeds.gawker.com/lifehacker/full' },
+    { name: 'neizod',           url: 'https://neizod.github.io/feed.xml' },
 ];
