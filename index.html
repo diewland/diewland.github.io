@@ -40,22 +40,30 @@
     }
     a {
       text-decoration: none;
-      color: #FFF;
+      color: #000;
     }
     a:hover {
-      color: #FC3;
-      text-decoration: underline;
+      color: #000;
+      font-weight: bold;
     }
     #top-wrapper {
-        width: 160px;
+        width: 156px;
         margin: auto auto;
     }
     #line {
         float: left;
+        margin-right: -20px;
     }
     #links {
-        text-align: left;
         float: right;
+    }
+    .balloon {
+        background: url('./img/balloon.png');
+        background-size: contain;
+        height: 24px;
+        width: 54px;
+        padding-left: 4px;
+        margin-bottom: 3px;
     }
     .clear {
         clear: both;
@@ -78,9 +86,8 @@
 
             <!-- some links -->
             <div id='links'>
-                <a href='./fread/index.html' title='Read feed'>#fread</a><br />
-                <a href='./block/index.html' title='Color block game'>#block</a><br />
-                <a href='https://github.com/diewland/diewland.github.io/wiki' title='My Wiki'>#wiki</a>
+                <div class='balloon'><a href='./fread/index.html' title='Read feed'>fread</a></div>
+                <div class='balloon'><a href='./block/index.html' title='Color block game'>block</a></div>
             </div>
 
             <div class='clear'></div>
