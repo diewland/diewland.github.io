@@ -3,13 +3,13 @@
 }
 
 .badges {
-  margin:10px 10px 25px;
+  margin: 5px 0px; /*10px 10px 25px;*/
   padding:0;
 }
 
 .badges li {
   display:inline-block;
-  margin:2px;
+  margin: 2px;
 }
 
 .badges li img {
