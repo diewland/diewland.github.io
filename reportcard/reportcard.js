@@ -87,8 +87,14 @@ $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
         liWidth = '100px';
         // html = "<h2>I have passed " + data.badge_count + " lessons and scored " + (toThousands(data.points_total)) + " points at " + data.site + "!</h2>\n<p>Check out some of my last passed course content at the badges below: </p>\n<ul class=\"badges\">";
         html = "<ul class=\"badges\">";
+        lastBadges.reverse(); // desc
         lastBadges.forEach(function(badge) {
-          return html += "<li style=\"width: " + liWidth + ";\" title=\"" + badge.label + "\">\n  <a href=\"" + data.profile_url + "\" target=\"_blank\" data-toggle=\"tooltip\" data-placement=\"top\" >\n    <img src=\"" + badge.icon_url + "\" alt=\"" + badge.label + "\"/>\n  </a>\n</li>";
+          if(badge.url){
+            return html += "<li style=\"width: " + liWidth + ";\" title=\"" + badge.label + "\">\n  <a href=\"" + badge.url + "\" target=\"_blank\" data-toggle=\"tooltip\" data-placement=\"top\" >\n    <img src=\"" + badge.icon_url + "\" alt=\"" + badge.label + "\"/>\n  </a>\n</li>";
+          }
+          else {
+            return html += "<li style=\"width: " + liWidth + ";\" title=\"" + badge.label + "\">\n  <a href=\"" + data.profile_url + "\" target=\"_blank\" data-toggle=\"tooltip\" data-placement=\"top\" >\n    <img src=\"" + badge.icon_url + "\" alt=\"" + badge.label + "\"/>\n  </a>\n</li>";
+          }
         });
         html += "</ul>";
         options.$element.html(html);
