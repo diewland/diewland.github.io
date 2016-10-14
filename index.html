@@ -1,1 +1,103 @@
-<style type="text/css">* { background-color: #000; }</style>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>diewland.com</title>
+        <meta name="description" content="diewland website">
+        <meta name="author" content="diewland">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /* page margin */
+            *    { margin: 0px; }
+            html { margin: 5px; }
+            /* grid */
+            .grid-item {
+                margin-right: 5px;
+                margin-bottom: 5px;
+            }
+            /* wallpaper */
+            html { 
+                background: url("./6Kok1.png");
+            }
+            #wpp-credit {
+                color: #FFF;
+                font-family: Arial;
+                font-size: 12px;
+                position: fixed;
+                bottom: 0px;
+                text-align: right;
+                width: 99%;
+            }
+            a {
+                color: #FFF;
+                text-decoration: none;
+            }
+        </style>
+        <link rel="stylesheet" href="./reportcard/badges.css">
+    </head>
+    <body>
+
+        <!-- grids -->
+        <div class="grid">
+            <div class="grid-item">
+                <a title='Enlightened Thailand' href='https://plus.google.com/communities/102374626379330339397'><img src='./diewland-2016-350.png' /></a>
+            </div>
+            <div class="grid-item">
+                <a href='http://surfacage.tumblr.com/post/148884792904/some-guy-instinct-just-memes-around-uselessly-i'><img title='#teaminstinct' src='http://66.media.tumblr.com/8bc80b721791fb16f8aa5128b69267a1/tumblr_obus51V0q11qcdr0xo7_1280.png' width='350' /></a>
+            </div>
+            <div class="grid-item" style='width: 350px; height: 585px;'>
+                <script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe style="width: 100%; height: 100%; border: 0; overflow: hidden;" src="http://lightwidget.com/widgets/e3473b849bbb5ad5b5281877a3af33b7.html" id="lightwidget_e3473b849b" name="lightwidget_e3473b849b"  scrolling="no" allowtransparency="true" class="lightwidget-widget"></iframe>
+            </div>
+            <div class="grid-item" style='width: 350px; height: 585px;'>
+                <a class="twitter-timeline" data-width="350" data-height="585" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/diewland">Tweets by diewland</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <script>window.twttr = (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {}; if (d.getElementById(id)) return t; js = d.createElement(s); js.id = id; js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); t._e = []; t.ready = function(f) { t._e.push(f); }; return t; }(document, "script", "twitter-wjs"));</script>
+            </div>
+            <div class="grid-item" style='width: 350px; height: 373px; overflow-x: hidden; overflow-y: scroll;'>
+                <div class="report-card codeschool"></div>
+            </div>
+            <div class="grid-item">
+                <iframe src="http://githubbadge.appspot.com/diewland?s=1" style="border: 0; height: 125px; width: 200px; overflow: hidden;" frameBorder="0"></iframe>
+            </div>
+            <div class="grid-item">
+                <a href="http://stackoverflow.com/users/466693/diewland"><img src="http://stackoverflow.com/users/flair/466693.png" width="208" height="58" alt="profile for diewland at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for diewland at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+            </div>
+            <div class="grid-item">
+                <a title='Google Play Apps' href='https://play.google.com/store/apps/developer?id=diewland'><img width='200' height='60' src='https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png' /></a>
+            </div>
+            <div class="grid-item">
+                <a id='line' title='LINE Sticker' href='https://store.line.me/stickershop/author/55318/en'><img src='https://sdl-stickershop.line.naver.jp/products/0/0/1/1123797/LINEStorePC/thumbnail_shop.png'></a>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div id='wpp-credit'>
+            <a href='http://rpg-directory.com/thread-30483.html'>Tile-Able Wood Texture by ROBOTIC</a>
+        </div>
+
+        <!-- load scripts -->
+        <script src='./jquery-3.1.0.min.js'></script>
+        <script src='./masonry.pkgd.min.js'></script>
+        <script src='./imagesloaded.pkgd.min.js'></script>
+        <script src='./reportcard/reportcard.js'></script>
+
+        <!-- pin! -->
+        <script>
+            var $grid = $('.grid').imagesLoaded( function() {
+                $grid.masonry({
+                    itemSelector: '.grid-item',
+                    columnWidth: 1, // attemp to shift to left hand side
+                });
+            });
+        </script>
+
+        <!-- reportcard -->
+        <script>
+            $('.report-card.codeschool').reportCard({
+                userName: 'diewland',
+                site: 'codeschool',
+                badgesAmount: 99,
+            });
+        </script>
+
+    </body>
+</html>
