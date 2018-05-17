@@ -1,8 +1,10 @@
+<h4>20180517</h4>
+<img src='https://raw.githubusercontent.com/diewland/diewland.github.io/master/ss/20180517.png'>
 <h4>20171229</h4>
-<img src='https://c1.staticflickr.com/5/4731/39364994391_8e8c4502f4_z.jpg'>
+<img src='https://raw.githubusercontent.com/diewland/diewland.github.io/master/ss/20171229.jpg'>
 <h4>20160802</h4>
-<img src='https://c2.staticflickr.com/9/8139/28639259801_c30cd5a820_z.jpg'>
+<img src='https://raw.githubusercontent.com/diewland/diewland.github.io/master/ss/20160802.jpg'>
 <h4>20160801</h4>
-<img src='https://c8.staticflickr.com/9/8815/28084651743_2729dfce85_z.jpg'>
+<img src='https://raw.githubusercontent.com/diewland/diewland.github.io/master/ss/20160801.jpg'>
 <h4>BF20160731</h4>
-<img src='https://c7.staticflickr.com/8/7581/28408879750_9c72692d6a_z.jpg'>
+<img src='https://raw.githubusercontent.com/diewland/diewland.github.io/master/ss/BF20160731.jpg'>
