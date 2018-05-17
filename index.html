@@ -1,18 +1,42 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to diewland</title>
-    <link rel="stylesheet" type="text/css" href="css/app.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/socialicious.css" media="screen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- page CSS -->
+    <style type="text/css">
+      body { background-color: #000; }
+      html, body { height: 100%; }
+      @media (min-width: 992px) {
+        img { height: 600px; }
+      }
+    </style>
+
+    <title>Agent diewland</title>
   </head>
-  <body>
-    <div class='social'>
-      <a href='https://twitter.com/diewland' title='Twitter'><i class="icon-3x icon-twitter-sign"></i></a>
-      <a href='https://instagram.com/diewland' title='Instagram'><i class="icon-3x icon-instagram-sign"></i></a>
-      <a href='https://diewland.com/+' title='Google+'><i class="icon-3x icon-googleplus-sign"></i></a>
-      <a href='https://github.com/diewland' title='GitHub'><i class="icon-3x icon-github-sign"></i></a>
+  <body class="d-table w-100">
+
+    <div class="d-table-cell align-middle text-center">
+      <div id="card">
+        <div class="front">
+          <img class="mw-100" src="front.jpg">
+        </div>
+        <div class="back">
+          <img class="mw-100" src="back.jpg">
+        </div>
+      </div>
     </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- Flip card effect -->
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script> $("#card").flip(); </script>
   </body>
 </html>
