@@ -1,3 +1,4 @@
+o/
 <h4>20180517</h4>
 <img src='https://raw.githubusercontent.com/diewland/diewland.github.io/master/ss/20180517.png'>
 <h4>20171229</h4>
