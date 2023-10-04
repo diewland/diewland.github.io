@@ -4,3 +4,4 @@ RewriteRule "^\+" "https://plus.google.com/109694712167796875633" [L]
 Redirect 301 /nft https://linktr.ee/diewland_nft
 Redirect 301 /youtube https://www.youtube.com/user/nbuam
 Redirect 301 /blog https://diewland.medium.com/
+Redirect 301 /slides/erc1155 https://docs.google.com/presentation/d/1ygFYI-Dp0ynR_2ZOw8tysmp6XtQHmgcO69-4UYWS0_Q/edit?usp=sharing
