@@ -15,6 +15,32 @@
       @media (min-width: 992px) {
         img { height: 600px; }
       }
+
+      /* 3D tilt effect */
+      #tilt {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(var(--s, 1));
+        transition: transform .5s ease;
+        touch-action: none;
+        will-change: transform;
+      }
+      #tilt.active { transition: transform .08s linear; }
+      #tilt img { display: block; }
+      #tilt .shine {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+        opacity: 0;
+        transition: opacity .3s;
+        background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.55), transparent 60%);
+      }
+      #tilt.active .shine { opacity: 1; }
+      @media (prefers-reduced-motion: reduce) {
+        #tilt { transform: none !important; }
+      }
     </style>
 
     <title>Agent diewland</title>
@@ -22,6 +48,7 @@
   <body class="d-table w-100">
 
     <div class="d-table-cell align-middle text-center">
+      <div id="tilt">
       <div id="card">
         <div class="front">
           <img class="mw-100" src="front.jpg">
@@ -30,6 +57,8 @@
           <img class="mw-100" src="back.jpg">
         </div>
       </div>
+      <div class="shine"></div>
+      </div>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -37,6 +66,39 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- Flip card effect -->
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-    <script> $("#card").flip(); </script>
+    <script>
+      $("#card").flip();
+
+      // 3D tilt toward mouse / finger (Pointer Events cover both)
+      (function () {
+        var el = document.getElementById("tilt");
+        var MAX = 15, frame = null, last = null;
+        function apply() {
+          frame = null;
+          var r = el.getBoundingClientRect();
+          var px = Math.min(Math.max((last.x - r.left) / r.width, 0), 1);
+          var py = Math.min(Math.max((last.y - r.top) / r.height, 0), 1);
+          el.style.setProperty("--ry", ((px - .5) * 2 * MAX) + "deg");
+          el.style.setProperty("--rx", ((.5 - py) * 2 * MAX) + "deg");
+          el.style.setProperty("--mx", (px * 100) + "%");
+          el.style.setProperty("--my", (py * 100) + "%");
+          el.style.setProperty("--s", "1.04");
+          el.classList.add("active");
+        }
+        function move(e) {
+          last = { x: e.clientX, y: e.clientY };
+          if (!frame) frame = requestAnimationFrame(apply);
+        }
+        function reset(e) {
+          if (e.type === "pointerup" && e.pointerType === "mouse") return;
+          if (frame) { cancelAnimationFrame(frame); frame = null; }
+          ["--rx", "--ry", "--mx", "--my", "--s"].forEach(function (k) { el.style.removeProperty(k); });
+          el.classList.remove("active");
+        }
+        el.addEventListener("pointermove", move);
+        el.addEventListener("pointerdown", move);
+        ["pointerleave", "pointerup", "pointercancel"].forEach(function (t) { el.addEventListener(t, reset); });
+      })();
+    </script>
   </body>
 </html>
